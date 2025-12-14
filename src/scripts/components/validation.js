@@ -1,6 +1,18 @@
 const showInputError = (inputElement, inputErrorClass, errorClass) => {
     const errorElement = document.getElementById(`${inputElement.id}-error`);
-    const errorMessage = inputElement.dataset.errorMessage;
+    const validity = inputElement.validity;
+    
+    let errorMessage = '';
+
+    if (validity.valueMissing) {
+        errorMessage = inputElement.dataset.errorValueMissing || inputElement.validationMessage;
+    } else if (validity.tooShort) {
+        errorMessage = inputElement.dataset.errorTooShort || inputElement.validationMessage;
+    } else if (validity.patternMismatch) {
+        errorMessage = inputElement.dataset.errorMessage || inputElement.validationMessage;
+    } else {
+        errorMessage = inputElement.validationMessage;
+    }
     errorElement.textContent = errorMessage;
     errorElement.classList.add(errorClass);
     inputElement.classList.add(inputErrorClass);
