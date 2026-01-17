@@ -23,6 +23,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Установить зависимости
+        run: |
+          npm ci
+          chmod +x node_modules/.bin/*
+
       - name: Build project
         run: npm run build
 
