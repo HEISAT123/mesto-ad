@@ -13,5 +13,5 @@ export default defineConfig({
   server: {
     open: true,     // автоматически открывать страницу в браузере
   },
-  base: './',
+
 });
