@@ -8,6 +8,7 @@
     "dev": "npx vite",
     "build": "npx vite build",
     "preview": "npx vite preview"
+
   },
   "repository": {
     "type": "git",
